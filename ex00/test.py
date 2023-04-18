@@ -4,7 +4,7 @@ from recipe import Recipe
 
 def main():
     my_book = Book("THE BOOK")
-    my2_book = Book("THE BOOK 2")
+    my_book2 = Book("THE BOOK 2")
     sandwich_obj = Recipe(
         "sandwich",
         2,
@@ -24,12 +24,13 @@ def main():
         "lunch",
         "LOL GOOD SALAD",
     )
-    
+
     my_book.add_recipe(sandwich_obj)
-    my2_book.add_recipe(cake_obj)
-    my2_book.add_recipe(salad_obj)
+    my_book2.add_recipe(cake_obj)
+    my_book.add_recipe(salad_obj)
     my_book.get_recipe_by_name("sandwich")
     my_book.get_recipes_by_types("lunch")
+    my_book2.get_recipe_by_name("cake")
 
 
 if __name__ == "__main__":
