@@ -64,9 +64,9 @@ class Vector:
             for index in range(rows):
                 result_vector[0][index] = self.values[0][index] * other.values[0][index]
 
-        return result_vector
+        return Vector(result_vector)
 
-    def T(self, return_shape=False):
+    def T(self):
         cols, rows = self.shape
         transposed_vector: List[List[float]] = [[]]
         if cols > 1:
@@ -77,10 +77,8 @@ class Vector:
             transposed_vector = [[None]] * rows
             for index in range(rows):
                 transposed_vector[[index][0]] = [self.values[0][index]]
-        if not return_shape:
-            return transposed_vector
-        else:
-            return transposed_vector, shape(transposed_vector)
+        
+        return Vector(transposed_vector)
 
     def __mul__(self, number: int or float):
         cols, rows = self.shape
@@ -94,7 +92,7 @@ class Vector:
             for index in range(rows):
                 result_vector[0][index] = self.values[0][index] * number
 
-        return result_vector
+        return Vector(result_vector)
 
     def __rmul__(self, number):
         raise NotImplementedError(
@@ -113,10 +111,16 @@ class Vector:
             for index in range(rows):
                 result_vector[0][index] = self.values[0][index] / number
 
-        return result_vector
+        return Vector(result_vector)
 
     def __rtruediv__(self, number):
         raise NotImplementedError(
             "Division of a scalar by a Vector is not defined here."
         )
 
+    def __str__(self):
+        return str(self.values)
+
+    def __repr__(self):
+        print(str(self.values)) 
+        return str(self.values)
