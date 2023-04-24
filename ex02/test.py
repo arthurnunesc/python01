@@ -94,7 +94,7 @@ def main():
     print(Vector([[0.0, 1.0, 2.0, 3.0]]))
     print(Vector([[0.0], [1.0], [2.0], [3.0]]))
     print(Vector(3))
-    # values = [[0.0], [1.0], [2.0]
+    # values = [[0.0], [1.0], [2.0]]
     print(Vector((10,16)))
     # values = [[10.0], [11.0], [12.0], [13.0], [14.0], [15.0]]
     print(Vector((2,0)))
