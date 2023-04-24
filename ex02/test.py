@@ -84,12 +84,15 @@ def main():
     v4 = Vector([[2.0, 4.0]])
     print(v3.dot(v4))
     # Expected output: 13.0
+    ### REAL EXPECTED OUTPUT: 14.0
     repr(v1)
     # Expected output: to see what __repr__() should do
     # [[0.0, 1.0, 2.0, 3.0]]
+    ### REAL EXPECTED OUTPUT: [[0.0], [1.0], [2.0], [3.0]]
     print(v1)
     # Expected output: to see what __str__() should do
     # [[0.0, 1.0, 2.0, 3.0]]
+    ### REAL EXPECTED OUTPUT: [[0.0], [1.0], [2.0], [3.0]]
 
     print(Vector([[0.0, 1.0, 2.0, 3.0]]))
     print(Vector([[0.0], [1.0], [2.0], [3.0]]))

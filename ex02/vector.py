@@ -31,6 +31,7 @@ def validate_vector(vector: List[List[float or int]]):
                 return "Invalid vector values, there is something that is not a number in it"
     return validated_vector
 
+
 def generate_values_int_or_tuple(range_arg: int or tuple[int]):
     if type(range_arg) is int:
         if range_arg <= 0:
@@ -52,6 +53,7 @@ def generate_values_int_or_tuple(range_arg: int or tuple[int]):
             j += 1
     return generated_values
 
+
 class Vector:
     def __init__(self, values: List[List[float or int]] or int or tuple[int]):
         if type(values) is not int and type(values) is not tuple:
@@ -69,22 +71,26 @@ class Vector:
     def dot(self, other):
         if not isinstance(other, Vector):
             raise AssertionError("Argument is not a Vector object")
+            return 1
         elif self.shape != other.shape:
             raise AssertionError("The shapes of the vectors are different")
+            return 1
         cols, rows = self.shape
-        result_vector: List[List[float]] = [[]]
+        result_dot_product = 0.0
         if cols > 1:
             result_vector = [[None]] * cols
             for index in range(cols):
                 result_vector[[index][0]] = [
                     self.values[index][0] * other.values[index][0]
                 ]
+                result_dot_product += self.values[index][0] * other.values[index][0]
         else:
             result_vector = [[None] * rows]
             for index in range(rows):
                 result_vector[0][index] = self.values[0][index] * other.values[0][index]
+                result_dot_product += self.values[0][index] * other.values[0][index]
 
-        return Vector(result_vector)
+        return result_dot_product
 
     def T(self):
         cols, rows = self.shape
